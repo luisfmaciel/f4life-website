@@ -16,7 +16,7 @@
     <nav class="navbar">
       <div class="navbar__container">
         <div id="navbar__logo">
-          <a href="#home">
+          <a href="#home-page">
             <img src="./assets/índice.png" alt="Logo">  
           </a>
         </div>
@@ -27,13 +27,13 @@
         </div>
         <ul class="navbar__menu">
           <li class="navbar__item">
-            <a href="#sobre" class="navbar__links" id="sobre-link">Sobre</a>
+            <a href="#sobre-page" class="navbar__links" id="sobre-link">Sobre</a>
           </li>
           <li class="navbar__item">
-            <a href="#destaques" class="navbar__links" id="destaques-link">Destaques</a>
+            <a href="#servicos-page" class="navbar__links" id="servicos-link">Serviços</a>
           </li>
           <li class="navbar__item">
-            <a href="#servicos" class="navbar__links" id="servicos-link">Serviços</a>
+            <a href="#destaques-page" class="navbar__links" id="destaques-link">Destaques</a>
           </li>
           <li class="navbar__item">
             <a href="#avalicoes" class="navbar__links" id="avalicoes-link">Avaliações</a>
@@ -52,29 +52,29 @@
     </nav>
   </header>
   <main>
-    <section class="hero" id="home">
+    <section class="hero" id="home-page">
       <div class="hero__background">
         <img src="./assets/img-01.jpg" alt="background">
       </div>
       <div class="hero__content">
         <p class="topline">Facilite sua vida</p>
-        <h1 class="hero__heading">Encontre uma moradia próxima a sua Universidade.</h1>
+        <h1 class="hero__heading">Encontre um imóvel próxima a sua Universidade.</h1>
         <p class="hero__description">Pesquise pela localização ou a partir do nome da sua Universidade:</p>
         <div class="hero__search">
-          <form action="search_home">
+          <form action="#">
             <div class="hero__search-home">
               <div class="hero__search-box">
                 <i class="bi bi-geo-alt-fill"></i>
-                <div class="hero__box-form" id="input_geo">
+                <div class="hero__box-form" id="input-geo">
                   <label for="geo">Local</label>
-                  <input type="text" id="geo" placeholder="Nome da Universidade ou CEP" required>
+                  <input type="text" id="geo" placeholder="Nome da Universidade ou CEP" >
                 </div>
               </div>
               <div class="hero__search-box">
                 <i class="bi bi-house-door-fill"></i>
-                <div class="hero__box-form">
+                <div class="hero__box-form" id="select-type">
                   <label for="geo">Tipo</label>
-                  <select>
+                  <select >
                     <option value="" selected disabled>Tipo de moradia</option>
                     <option value="apartamento">Apartamento</option>
                     <option value="casa">Casa</option>
@@ -83,7 +83,7 @@
                 </div>
               </div>
               <div class="hero__search-box">
-                <button type="submit" class="hero__search-btn" onclick="test()">
+                <button type="button" class="hero__search-btn" onclick="test()">
                   <i class="bi bi-search"></i>
                 </button>
               </div>
@@ -93,7 +93,134 @@
         <!-- <a href="/" class="hero__button">Get Started</a> -->
       </div>
     </section>
-    <section id="destaques" style="height: 100vh;"></section>
+    <section class="sobre" id="sobre-page">
+      <div class="sobre__container">
+        <div class="sobre__img-box">
+          <img src="./assets/img-02.jpg" alt="Edifício">
+        </div>
+        <div class="sobre__content">
+          <div class="box-heading">
+            <span class="line"></span>
+            <h1>Quem somos</h1>
+          </div>
+          <p>F4Life é uma empresa de aluguéis de repúblicas para pessoas universitárias. 
+            Similar aos modelos de Quinto Andar e Loft, 
+            a empresa realiza reformas e prepara moradias 
+            para recepção de pessoas universitárias em um ambiente específico 
+            e otimizado para a vida de graduação.
+          </p>
+          <div class="sobre__details">
+            <div class="sobre__details-box">
+              <span>10+</span>
+              <p>Anos no mercado</p>
+            </div>
+            <div class="sobre__details-box">
+              <span>2050+</span>
+              <p>Reformas e preparos</p>
+            </div>
+          </div>    
+          <div class="sobre__details">
+            <div class="sobre__details-box">
+              <span>4000+</span>
+              <p>Contratos assinados</p>
+            </div>
+            <div class="sobre__details-box">
+              <span>0</span>
+              <p>Burocracia e papelada</p>
+            </div>
+          </div>                  
+        </div>
+      </div>
+    </section>
+    <section class="servicos" id="servicos-page">
+      <div class="servicos__container">
+        <div class="servicos__content">
+          <div class="box-heading">
+            <h1>Serviços</h1>
+            <span class="line"></span>
+          </div>
+          <h3>Focamos no uso da tecnologia para desburocratizar de forma segura todo processo de aluguel e facilitar a busca pelo imóvel ideal.</h3>
+          <p>Para garantir a melhor experiêcia para os estudantes, tornamos todo o processo totalmente digital, desde a busca pelo imóvel, passando pela assinatura de contrato até o pagamento do aluguel de forma online.</p>
+          <p>Oferecemos também a possibilidade do estudante buscar por pessoas com interesses em comum para compartilhar um imóvel.</p>
+          <a class="servicos__button" href="#home-page">Saiba mais <i class="arrow bi bi-arrow-right"></i></a>
+        </div>
+        <div class="servicos__img-box">
+          <img src="./assets/img-06.jpg" alt="Colegas de quarto">
+        </div>
+      </div>
+    </section>
+    <section class="destaques" id="destaques-page">
+      <div class="box-heading">
+        <span class="line"></span>
+        <h1>Destaques</h1>
+      </div>
+      <p class="destaques__description">Confira os principais destaques da semana.</p>
+      <p class="destaques__description">Você também pode buscar a melhor opção mais próxima de você!</p>
+      </div>
+      <div class="destaques__container">
+        <div class="destaques__card">
+          <img src="./assets/img-03.jpg" alt="Quarto">
+          <p class="destaques__type">Apartamento</p>
+          <p class="destaques__locale">Rio de Janeiro, RJ</p>
+          <h3>R$ 1.600,00</h3>
+          <div class="destaques__box-details">
+            <div class="destaques__details">
+              <p>Área</p>
+              <p>60m²</p>
+            </div>
+            <div class="destaques__details">
+              <p>Quartos</p>
+              <p>2</p>
+            </div>
+            <div class="destaques__details">
+              <p>Banheiros</p>
+              <p>1</p>
+            </div>
+          </div>
+        </div>
+        <div class="destaques__card">
+          <img src="./assets/img-04.jpg" alt="Quarto">
+          <p class="destaques__type">Casa</p>
+          <p class="destaques__locale">São Paulo, SP</p>
+          <h3>R$ 1.460,00</h3>
+          <div class="destaques__box-details">
+            <div class="destaques__details">
+              <p>Área</p>
+              <p>86m²</p>
+            </div>
+            <div class="destaques__details">
+              <p>Quartos</p>
+              <p>2</p>
+            </div>
+            <div class="destaques__details">
+              <p>Banheiros</p>
+              <p>2</p>
+            </div>
+          </div>
+        </div>
+        <div class="destaques__card">
+          <img src="./assets/img-05.jpg" alt="Quarto">
+          <p class="destaques__type">Kitnet</p>
+          <p class="destaques__locale">Rio de Janeiro, RJ</p>
+          <h3>R$ 1.280,00</h3>
+          <div class="destaques__box-details">
+            <div class="destaques__details">
+              <p>Área</p>
+              <p>48m²</p>
+            </div>
+            <div class="destaques__details">
+              <p>Quartos</p>
+              <p>1</p>
+            </div>
+            <div class="destaques__details">
+              <p>Banheiros</p>
+              <p>1</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="destaques__button" href="#home-page">Saiba mais <i class="arrow bi bi-arrow-right"></i></a>
+    </section>
     <footer></footer>
     
     <script src="app.js"></script>

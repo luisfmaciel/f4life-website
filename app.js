@@ -1,17 +1,35 @@
 
-var errorAlreadyExist = false;
+var inputErrorAlreadyExists = false;
+var selectErrorAlreadyExists = false;
 
 function test() {
-  const box = document.querySelector('#input_geo');
+  const boxInput = document.querySelector('#input-geo');
+  const boxSelect = document.querySelector('#select-type');
   const input = document.querySelector('#geo');
-  const elem = document.createElement('p');
+  const select = document.querySelector('select');
+  const form = document.querySelector('form');
+
+  const elemErrorInput = document.createElement('p');
+  const elemErrorSelect = document.createElement('p');
   
-  if (!input.value && !errorAlreadyExist) {
-    elem.innerHTML = 'Preenchimento obrigatório';
-    elem.classList.add('hero__error-message');  
-    input.style.color = 'red';
-    box.appendChild(elem);
-    errorAlreadyExist = true;
+  if (!input.value && !inputErrorAlreadyExists) {
+    elemErrorInput.innerHTML = 'Preenchimento obrigatório';
+    elemErrorInput.classList.add('hero__error-message');  
+    boxInput.appendChild(elemErrorInput);
+    inputErrorAlreadyExists = true;
+  } else { 
+    boxInput.removeChild(elemErrorInput);
+  }
+
+  if (!select.value && !selectErrorAlreadyExists) {
+    elemErrorSelect.innerHTML = 'Preenchimento obrigatório';
+    elemErrorSelect.classList.add('hero__error-message');  
+    boxSelect.appendChild(elemErrorSelect);
+    selectErrorAlreadyExists = true;
+  }
+
+  if (select.value && input.value) {
+    form.submit();
   }
 }
 
