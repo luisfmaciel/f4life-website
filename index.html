@@ -36,10 +36,7 @@
             <a href="#destaques-page" class="navbar__links" id="destaques-link">Destaques</a>
           </li>
           <li class="navbar__item">
-            <a href="#avalicoes" class="navbar__links" id="avalicoes-link">Avaliações</a>
-          </li>
-          <li class="navbar__item">
-            <a href="#contato" class="navbar__links" id="contato-link">Contato</a>
+            <a href="#contato-page" class="navbar__links" id="contato-link">Contato</a>
           </li>
           <li class="navbar__btn">
             <a href="#sign-up" class="button" id="signup">
@@ -73,9 +70,9 @@
               <div class="hero__search-box">
                 <i class="bi bi-house-door-fill"></i>
                 <div class="hero__box-form" id="select-type">
-                  <label for="geo">Tipo</label>
+                  <label for="geo-select">Tipo</label>
                   <select >
-                    <option value="" selected disabled>Tipo de moradia</option>
+                    <option id="geo-select" value="" selected disabled>Tipo de moradia</option>
                     <option value="apartamento">Apartamento</option>
                     <option value="casa">Casa</option>
                     <option value="kitnet">Kitnet</option>
@@ -221,9 +218,59 @@
       </div>
       <a class="destaques__button" href="#home-page">Saiba mais <i class="arrow bi bi-arrow-right"></i></a>
     </section>
-    <footer></footer>
-    
-    <script src="app.js"></script>
+    <section class="contato" id="contato-page">
+      <div class="contato__container">
+        <div class="contato__content">
+          <div class="contato__filter">
+            <h1>Fale com a gente</h1>
+            <span class="line"></span>
+            <p>Envie suas sugestões, reclamações ou dúvidas, estaremos sempre atendos para te ouvir.</p>
+          </div>
+        </div>
+        <div class="contato__form">
+          <form action="#home">
+            <div class="contato__form-box">
+              <label for="contato-email">Email*</label>
+              <input type="email" id="contato-email">
+            </div>
+            <div class="contato__form-box">
+              <label for="contato-message">Menssagem*</label>
+              <textarea name="contato-message" id="contato-message" cols="40" rows="10"></textarea>
+            </div>
+            <div class="contato__box-form">
+              <button type="submit" class="contato__form-button">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
+  <footer class="footer">
+    <div class="footer__wrapper">
+      <div class="footer__desc">
+        <a href="#home-page">
+          <img src="./assets/índice.png" alt="Logo">  
+        </a>
+      </div>
+      <div class="footer__links">
+        <h2 class="footer__title">Sobre nós</h2>
+        <a href="#sobre-page" class="footer__link">Quem somos</a>
+        <a href="#servicos-page" class="footer__link">Serviços</a>
+        <a href="#destaques-page" class="footer__link">Destaques</a>
+        <a href="#contato-page" class="footer__link">Fale Conosco</a>
+      </div>
+      <div class="footer__links">
+        <h2 class="footer__title">Social Medias</h2>
+        <a href="https://twitter.com" class="footer__link"><i class="bi bi-twitter"></i>Twitter</a>
+        <a href="https://facebook.com" class="footer__link"><i class="bi bi-facebook"></i>Facebook</a>
+        <a href="https://instagram.com" class="footer__link"><i class="bi bi-instagram"></i>Instagram</a>
+      </div>
+    </div>
+    <div class="footer__rigths">
+      <p>LuxGym &copy 2022 All rigths reserved</p>
+    </div>
+  </footer>
+  
+  <script src="app.js"></script>
 </body>
 </html>

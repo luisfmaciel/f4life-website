@@ -1,4 +1,3 @@
-
 var inputErrorAlreadyExists = false;
 var selectErrorAlreadyExists = false;
 
@@ -31,6 +30,5 @@ function test() {
   if (select.value && input.value) {
     form.submit();
   }
-}
 
-// window.addEventListener('click', test);
+}
