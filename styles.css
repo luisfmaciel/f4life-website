@@ -1,3 +1,15 @@
+:root {
+  --main: #132235;
+  --primary: #f8f9fc;
+  --secondary: #6cd9d2;
+  --white: #fff;
+  --gray: #ececec;
+  --gray-500: #8b8b8b;
+  --gray-700: #7c7c7c;
+  --blue-hover: #2d3e55;
+
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,11 +19,11 @@
 }
 
 main {
-  background-color: #f8f9fc;
+  background-color: var(--primary);
 }
 
 .navbar {
-  background-color: #132235;
+  background-color: var(--main);
   height: 80px;
   width: 100%;
   display: flex;
@@ -23,19 +35,13 @@ main {
   transition: all 0.3s ease-in-out;
 }
 
-.navbar.active {
-  background-color: #131313;
-  box-shadow: 3px 0 1em #1a1a1a;
-  transition: all 0.3s ease-in-out;
-}
-
 .navbar__container {
   display: flex;
   justify-content: space-between;
   z-index: 1;
   width: 100%;
   max-width: 1300px;
-  padding: 0 50px;
+  padding: 0 3rem;
 }
 
 #navbar__logo img {
@@ -54,7 +60,7 @@ main {
 }
 
 .navbar__links {
-  color: #fff;
+  color: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,10 +77,10 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;
+  padding: 0 1.5rem;
   height: 65px;
-  color: #fff;
-  border: 1px solid #fff;
+  color: var(--white);
+  border: 1px solid var(--white);
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -84,23 +90,22 @@ main {
 }
 
 .button:hover {
-  background-color: #fff;
-  color: #132235;
+  background-color: var(--white);
+  color: var(--main);
 }
 
 .navbar__links:hover {
-  color: #6cd9d2;
+  color: var(--secondary);
   transition: all 0.3s ease;
 }
 
 .highlight {
-  border-bottom: 4px solid #6cd9d2;
+  border-bottom: 4px solid var(--secondary);
 }
 
 .hero {
-  background-color: #f8f9fc;
+  background-color: var(--primary);
   height: 800px;
-  /* padding-top: 80px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -123,7 +128,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   position: absolute;
-  background-color: #f8f9fc;
+  background-color: var(--primary);
   height: 532px;
   max-height: 532px;
   width: 100%;
@@ -131,7 +136,6 @@ main {
   color: #000;
   padding: 3rem 3rem;
   margin-left: 3rem;
-  /* margin-top: 100px; */
   line-height: 1;
 }
 
@@ -145,7 +149,7 @@ main {
 }
 
 .topline {
-  color: #6cd9d2;
+  color: var(--secondary);
   text-transform: uppercase;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -156,19 +160,19 @@ main {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1rem;
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 10px;
-  box-shadow: 0 0 1rem #ececec;
+  box-shadow: 0 0 1rem var(--gray);
 }
 
 .hero__search-home i {
-  color: #6cd9d2;
+  color: var(--secondary);
 }
 
 .hero__box-form {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #ececec;
+  border-right: 1px solid var(--gray);
 }
 
 .hero__search-box {
@@ -179,7 +183,7 @@ main {
 .hero__box-form label {
   padding: 0.5rem 1rem;
   font-weight: bold;
-  color: #8b8b8b;
+  color: var(--gray-500);
 }
 
 .hero__box-form input {
@@ -194,15 +198,15 @@ main {
 
 .hero__box-form select {
   border: none;
-  background-color: #fff;
-  color: #7c7c7c;
+  background-color: var(--white);
+  color: var(--gray-700);
   padding: 0.5rem 1rem;
   margin-right: 2rem;
   border-radius: 4px;
 }
 
 .hero__box-form select:focus {
-  background-color: #ececec;
+  background-color: var(--gray);
 }
 
 .hero__error-message {
@@ -211,21 +215,15 @@ main {
   padding: 0.5rem 1rem;
 }
 
-.hero__button {
-  padding: 1rem 3rem;
-  border: none;
-  background-color: #1818ff;
-  border-radius: 8px;
-  text-decoration: none;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  transition: all 0.3s ease;
+#comming-soon {
+  font-size: 1rem;
+  display: none;
 }
 
-.hero__button:hover {
-  background-color: #4141ff;
-  transition: all 0.3s ease;
+.message-sending {
+  display: none;
+  color: green;
+  font-weight: bold;
 }
 
 .hero__search-btn {
@@ -234,22 +232,21 @@ main {
   justify-content: center;
   padding: 1rem;
   border-radius: 8px;
-  border: 2px solid #132235;
+  border: 2px solid var(--main);
   appearance: none;
-  background-color: #132235;
+  background-color: var(--main);
   cursor: pointer;
   transition: background-color 0.3s ease-in-out ;
 }
 
 .hero__search-btn:hover {
-  background-color: #2d3e55;
+  background-color: var(--blue-hover);
 }
 
 .sobre {
   width: 100%;
   height: 800px;
   display: flex;
-  /* padding-top: 80px; */
   align-items: center;
   justify-content: center;
 }
@@ -311,7 +308,7 @@ main {
   height: 2px;
   width: 126px;
   margin: 0 1rem 2rem 1rem;
-  background-color: #6cd9d2;
+  background-color: var(--secondary);
 }
 
 .sobre__details {
@@ -328,21 +325,20 @@ main {
 }
 
 .sobre__details-box span {
-  color: #132235;
+  color: var(--main);
   font-weight: 700;
   font-size: 1.8rem;
 }
 
 .sobre__details-box p {
-  color: #7c7c7c;
+  color: var(--gray-700);
 }
 
 .servicos,
 .contato {
   width: 100%;
   height: 800px;
-  background-color: #ececec;
-  /* padding-top: 80px; */
+  background-color: var(--gray);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -357,7 +353,6 @@ main {
 .destaques {
   width: 100%;
   height: 800px;
-  /* padding-top: 80px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -367,7 +362,6 @@ main {
 .destaques__container {
   width: 100%;
   height: 70%;
-  /* padding-top: 80px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -404,11 +398,11 @@ main {
   height: 350px;
   max-height: 350px;
   width: 330px;
-  background-color: #fff;
+  background-color: var(--white);
   padding: 1rem;
   margin: 0 1rem;
   border-radius: 10px;
-  box-shadow: 0 0 1rem #ececec;
+  box-shadow: 0 0 1rem var(--gray);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -424,7 +418,7 @@ main {
 }
 
 .destaques__card h3 {
-  color: #132235;
+  color: var(--main);
 }
 
 .destaques__box-details {
@@ -440,7 +434,7 @@ main {
 }
 
 .destaques__details p:nth-child(1){
-  color: #8b8b8b;
+  color: var(--gray-500);
   font-size: 0.8rem;
 }
 
@@ -451,12 +445,12 @@ main {
 
 .destaques__type {
   font-size: 0.9rem;
-  color: #6cd9d2;
+  color: var(--secondary);
   font-weight: bold;
 }
 
 .destaques__locale {
-  color: #8b8b8b;
+  color: var(--gray-500);
   font-size: 0.9rem;
 }
 
@@ -466,9 +460,9 @@ main {
   justify-content: center;
   text-decoration: none;
   padding: 1rem 3rem;
-  background-color: #132235;
-  border: 1px solid #132235;
-  color: #fff;
+  background-color: var(--main);
+  border: 1px solid var(--main);
+  color: var(--white);
   margin: 1rem 0;
   transition: all 0.3s ease-in-out ;
 }
@@ -476,7 +470,7 @@ main {
 .destaques__button:hover,
 .servicos__button:hover {
   background-color: transparent;
-  color: #132235;
+  color: var(--main);
 }
 
 .destaques__button i,
@@ -485,7 +479,7 @@ main {
 }
 
 .contato {
-  background-color: #f8f9fc;
+  background-color: var(--primary);
 }
 
 .contato__container {
@@ -512,8 +506,8 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: #fff;
-  background-color: #132235;
+  color: var(--white);
+  background-color: var(--main);
   opacity: 0.9;
   z-index: 9;
 }
@@ -537,7 +531,15 @@ main {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background-color: #ececec;
+  background-color: var(--gray);
+}
+
+#my-form {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .contato__form-box {
@@ -547,7 +549,7 @@ main {
 
 .contato__form-box label {
   color: #575757;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .contato__form-box input,
@@ -555,9 +557,8 @@ main {
   width: 500px;
   max-width: 500px;
   border: none;
-  border-bottom: 1px solid #8b8b8b;
-  margin-bottom: 2rem;
-  background-color: #ececec;
+  border-bottom: 1px solid var(--gray-500);
+  background-color: var(--gray);
   padding: 1rem 2rem;
   outline: none;
 }
@@ -569,7 +570,7 @@ main {
 
 .contato__form-box input:focus,
 .contato__form-box textarea:focus {
-  border: 2px solid #6cd9d2;
+  border: 2px solid var(--secondary);
 }
 
 .contato__box-form {
@@ -581,16 +582,22 @@ main {
 .contato__form-button {
   border: none;
   padding: 1rem 3rem;
-  border: 1px solid #132235;
-  background-color: #132235;
-  color: #fff;
+  margin-top: 2rem;
+  border: 1px solid var(--main);
+  background-color: var(--main);
+  color: var(--white);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 .contato__form-button:hover {
   background-color: transparent;
-  color: #132235  ;
+  color: var(--main)  ;
+}
+
+#error-input,
+#error-textarea {
+  display: none;
 }
 
 .footer {
@@ -598,8 +605,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #fff;
-  background-color: #132235 ;
+  color: var(--white);
+  background-color: var(--main) ;
 }
 
 .footer__desc {
@@ -632,29 +639,29 @@ main {
 
 .footer__title {
   font-size: 1.2rem;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .footer__link {
   text-decoration: none;
-  color: #fff;
+  color: var(--white);
   margin-bottom: 0.5rem;
   transition: all 0.3s ease-in-out;
 }
 
 .footer__link:hover {
-  color: #1818FF;
+  color: var(--secondary);
 }
 
 .footer__rigths {
   width: 100%;
-  border-top: 1px solid #ececec;
+  border-top: 1px solid var(--gray);
   text-align: center;
 }
 
 .footer__rigths p {
   padding-top: 2rem;
-  color: #ececec;
+  color: var(--gray);
 }
 
 @media screen and (max-width: 960px) {
@@ -691,7 +698,7 @@ main {
   }
 
   #navbar__logo {
-    margin-left: 20px;
+    margin-left: 1.5rem;
   }
 
   .navbar__toggle {
@@ -703,7 +710,7 @@ main {
     height: 3px;
     margin: 5px auto;
     transition: all 0.3s ease-in-out;
-    background-color: #fff;
+    background-color: var(--white);
   }
   
   .navbar__links {
@@ -736,7 +743,7 @@ main {
     display: block;
     cursor: pointer;
     z-index: 999;
-    background-color: #fff;
+    background-color: var(--white);
     padding: 1.6px 0;
   }
 
@@ -867,7 +874,8 @@ main {
   }
 
   .contato__form {
-    background-color: #ececec;
+    background-color: var(--gray);
+    width: 100%;
     padding: 1.6rem 0;
   }
 
@@ -877,7 +885,7 @@ main {
 
   .contato__form-box input,
   .contato__form-box textarea {
-    width: 100%;
+    width: 350px;
   }
 
   .footer__wrapper {
@@ -885,9 +893,11 @@ main {
     align-items: center;
     justify-content: space-around;
   }
+
   .footer__links {
     padding: 2rem 1rem;
   }
+
   .footer__desc {
     padding: 0;
     margin-left: 2rem;

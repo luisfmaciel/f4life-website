@@ -1,43 +1,23 @@
+const input = document.querySelector('#contato-email');
+const textarea = document.querySelector('#contato-message');
+const errorInput = document.querySelector('#error-input');
+const errorTextarea = document.querySelector('#error-textarea');
+const messageSending = document.querySelector('.message-sending');
+const formButton = document.querySelector('.contato__form-button');
 const menu = document.querySelector('#mobile-menu');
 const menuLinks = document.querySelector('.navbar__menu');
 const navbar = document.querySelector('.navbar');
 const navLogo = document.querySelector('#navbar__logo');
 const body = document.querySelector('body');
+const elem = document.querySelector('.highlight');
+const sobreMenu = document.querySelector('#sobre-link');
+const servicosMenu = document.querySelector('#servicos-link');
+const destaquesMenu = document.querySelector('#destaques-link');
+const contatoMenu = document.querySelector('#contato-link');
+const heroButton = document.querySelector('.hero__search-btn');
+const textCommingSoon = document.querySelector('#comming-soon');
 
-var inputErrorAlreadyExists = false;
-var selectErrorAlreadyExists = false;
 
-function test() {
-  const boxInput = document.querySelector('#input-geo');
-  const boxSelect = document.querySelector('#select-type');
-  const input = document.querySelector('#geo');
-  const select = document.querySelector('select');
-  const form = document.querySelector('form');
-
-  const elemErrorInput = document.createElement('p');
-  const elemErrorSelect = document.createElement('p');
-  
-  if (!input.value && !inputErrorAlreadyExists) {
-    elemErrorInput.innerHTML = 'Preenchimento obrigatório';
-    elemErrorInput.classList.add('hero__error-message');  
-    boxInput.appendChild(elemErrorInput);
-    inputErrorAlreadyExists = true;
-  } else { 
-    boxInput.removeChild(elemErrorInput);
-  }
-
-  if (!select.value && !selectErrorAlreadyExists) {
-    elemErrorSelect.innerHTML = 'Preenchimento obrigatório';
-    elemErrorSelect.classList.add('hero__error-message');  
-    boxSelect.appendChild(elemErrorSelect);
-    selectErrorAlreadyExists = true;
-  }
-
-  if (select.value && input.value) {
-    form.submit();
-  }
-
-}
 
 function mobileMenu() {
   menu.classList.toggle('is-active');
@@ -48,16 +28,8 @@ function mobileMenu() {
 menu.addEventListener('click', mobileMenu);
 
 function highlightMenu() {
-  const elem = document.querySelector('.highlight');
-  const sobreMenu = document.querySelector('#sobre-link');
-  const servicosMenu = document.querySelector('#servicos-link');
-  const destaquesMenu = document.querySelector('#destaques-link');
-  const contatoMenu = document.querySelector('#contato-link');
-
   let scrollPos = window.scrollY;
 
-  console.log(window.screen.height);
-  
   if (window.innerWidth > 960 && scrollPos < 720) {
     servicosMenu.classList.remove('highlight');
     sobreMenu.classList.remove('highlight');
@@ -84,7 +56,7 @@ function highlightMenu() {
     contatoMenu.classList.remove('highlight');
   }
 
-  if ((elem && window.innerWIdth < 960) || elem) {
+  if ((elem && window.innerWidth < 960) || elem) {
     elem.classList.remove('highlight');
   }
 }
@@ -103,3 +75,107 @@ function hideMobileMenu() {
 
 menuLinks.addEventListener('click', hideMobileMenu);
 navLogo.addEventListener('click', hideMobileMenu);
+
+function validateForm() {
+  const splitedEmail = input.value.split('');
+
+  errorInput.style.display = !(validateDomain(splitedEmail) && validateUser(splitedEmail)) ? 'flex' : 'none';
+  errorInput.innerHTML = 'Erro no envio: Endereço de mail inválido';
+  errorTextarea.style.display = !textarea.value ? 'flex' : 'none';
+  errorTextarea.innerHTML = 'Erro no envio: Insira uma mensagem';
+  messageSending.innerHTML = `Obrigado pelo contato, ${getUser(splitedEmail).join('')}!`
+  messageSending.style.display = (validateDomain(splitedEmail) && validateUser(splitedEmail) && textarea.value) ? 'flex' : 'none';
+}
+
+formButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  validateForm();
+});
+
+
+function getUser(splitedEmail) {
+  let arroba = false;
+  const array = [];
+
+  splitedEmail.forEach(letra => {
+    if (letra == '@') {
+      arroba = true;
+    }
+    if (!arroba) {
+      array.push(letra)
+    }
+  });
+  return array;
+}
+
+function getDomain(splitedEmail) {
+  let arroba = false;
+  const array = [];
+
+  splitedEmail.forEach(letra => {
+    if (arroba) {
+      if (letra == '.') {
+        arroba = false;
+        return;
+      }
+      array.push(letra)
+    }
+    if (letra == '@') {
+      arroba = true;
+    }
+  });
+  return array;
+}
+
+function validateDomain(splitedEmail) {
+  const domain = getDomain(splitedEmail);
+  let valid;
+  let i = 0;
+
+  
+  if (domain.length <= 16 && domain.length >= 1 && splitedEmail.includes('@')) {
+    while(i < domain.length) {
+      const lowerCase = /^[a-z]/gm.test(domain[i]);
+      const numbers = /^[0-9]/gm.test(domain[i]);
+      if (lowerCase || numbers) {
+        valid = true;
+      } else {
+        valid = false;
+        break;
+      }
+      i++;
+    }
+  }
+  return valid; 
+}
+
+function validateUser(splitedEmail) {
+  const user = getUser(splitedEmail);
+  console.log(user);
+  let valid;
+  let i = 0;
+
+  
+  if (user.length <= 32 && user.length >= 1 && splitedEmail.includes('@')) {
+    while(i < user.length) {
+      const lowerCase = /^[a-z]/gm.test(user[i]);
+      const upperCase = /^[A-Z]/gm.test(user[i]);
+      const numbers = /^[0-9]/gm.test(user[i]);
+      if (lowerCase || upperCase || numbers || user[i] == '.') {
+        valid = true;
+      } else {
+        valid = false;
+        break;
+      }
+      i++;
+    }
+  }
+  return valid; 
+}
+
+function searchProperty() {
+  textCommingSoon.innerHTML = 'Em breve...';
+  textCommingSoon.style.display = 'flex';
+}
+
+heroButton.addEventListener('click', searchProperty)
