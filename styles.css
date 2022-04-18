@@ -132,6 +132,8 @@ main {
   height: 532px;
   max-height: 532px;
   width: 100%;
+  opacity: 0.9;
+
   max-width: 768px;
   color: #000;
   padding: 3rem 3rem;
